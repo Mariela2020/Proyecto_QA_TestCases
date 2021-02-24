@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Grid Suite" thread-count="3">
+
+    <test name="Run Chrome">
+        <parameter name="browser" value="CHROME"></parameter>
+        <parameter name="nodeUrl" value="http://localhost:30001/wd/hub"></parameter>
+        <classes>
+            <class name="TestCases.LoginTest"></class>
+        </classes>
+    </test>
+
+    <test name="Run Firefox">
+        <parameter name="browser" value="FIREFOX"></parameter>
+        <parameter name="nodeUrl" value="http://192.168.0.6:5567/wd/hub"></parameter>
+        <classes>
+            <class name="TestCases.LoginTest"></class>
+        </classes>
+    </test>
+
+    <test name="Run Edge">
+        <parameter name="browser" value="EDGE"></parameter>
+        <parameter name="nodeUrl" value="http://192.168.0.6:5568/wd/hub"></parameter>
+        <classes>
+            <class name="TestCases.LoginTest"></class>
+        </classes>
+    </test>
+
+
+</suite>
