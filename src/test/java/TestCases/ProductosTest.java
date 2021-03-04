@@ -31,7 +31,7 @@ public class ProductosTest {
     @BeforeTest
     //@Parameters({"browser"})
     public void setUpTest() throws MalformedURLException {
-        DriverManagerFactory.getInstance().setDriver(DriverType.EDGER);
+        DriverManagerFactory.getInstance().setDriver(DriverType.CHROME);
         driver = DriverManagerFactory.getInstance().getDriver();
         driver.get(baseUrl);
         waitElement = new WebDriverWait(driver, 15);

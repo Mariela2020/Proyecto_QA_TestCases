@@ -9,8 +9,8 @@
         </classes>
     </test>
 
-    <test name="Run Opera">
-        <parameter name="browser" value="OPERA"></parameter>
+    <test name="Run Chrome">
+        <parameter name="browser" value="CHROME"></parameter>
         <classes>
             <class name="TestCases.LoginTest"></class>
         </classes>
