@@ -13,6 +13,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,7 +52,7 @@ public class DriverManagerFactory {
         switch (type.toString()) {
             case "CHROME":
                 if (osName.equals("windows")) {
-                    //System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver/chromedriver.exe");
+                   //System.setProperty("webdriver.chrome.driver",driverPath + "chromedriver.exe");
                     capability = DesiredCapabilities.chrome();
                     capability.setBrowserName("chrome");
                     capability.setPlatform(Platform.ANY);
@@ -68,7 +69,7 @@ public class DriverManagerFactory {
 
             case "FIREFOX":
                 if (osName.equals("windows")) {
-                    System.setProperty("webdriver.gecko.driver","src/test/resources/geckodriver/geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver.exe");
                     //capability = DesiredCapabilities.firefox();
                     //capability.setBrowserName("firefox");
                     //capability.setPlatform(Platform.ANY);
@@ -87,17 +88,23 @@ public class DriverManagerFactory {
 
             case "EDGER":
                 if (osName.equals("windows")) {
-                    System.setProperty("webdriver.edge.driver", "src/test/resources/edgedriver_win64/msedgedriver.exe");
+                    System.setProperty("webdriver.edge.driver", driverPath + "msedgedriver.exe");
                 }
                 driver.set(new EdgeDriver());
                 break;
 
             case "OPERA":
                 if (osName.equals("windows")) {
-                    System.setProperty("webdriver.opera.driver", "src/test/resources/operadriver/operadriver.exe");
+                    System.setProperty("webdriver.opera.driver", driverPath + "operadriver.exe");
                 }
                 driver.set(new OperaDriver());
                 break;
+
+            case "SAFARI":
+                if(osName.equals("mac")) {
+                    driver.set(new SafariDriver());
+                    break;
+                }
 
         }
 

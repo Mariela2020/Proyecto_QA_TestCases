@@ -25,24 +25,24 @@ public class GridTest {
     DesiredCapabilities capability= null;
 
     @BeforeTest
-    @Parameters({"browser", "nodeUrl"})
-    public void launchBrowser(String browser, String nodeUrl) throws Exception {
+    //@Parameters({"browser", "nodeUrl"})
+    @Parameters({"browser"})
+    public void launchBrowser(String browser) throws Exception {
+   // public void launchBrowser(String browser, String nodeUrl) throws Exception {
         switch (browser.toUpperCase()){
             case "CHROME":
-                //System.out.println("chrome");
                 capability = DesiredCapabilities.chrome();
                 capability.setBrowserName("chrome");
                 capability.setPlatform(Platform.ANY);
 
                 break;
             case "FIREFOX":
-                System.out.println("firefox");
-               // System.setProperty("webdriver.gecko.driver","drivers/geckodriver.exe");
-               // driver =new FirefoxDriver();
-                capability = DesiredCapabilities.firefox();
+                System.setProperty("webdriver.gecko.driver","drivers/geckodriver.exe");
+                driver =new FirefoxDriver();
+               /* capability = DesiredCapabilities.firefox();
                 capability.setBrowserName("firefox");
                 capability.setPlatform(Platform.ANY);
-
+               */
                 break;
             case "EDGE":
                 System.out.println("edge");
@@ -69,7 +69,7 @@ public class GridTest {
 
         }
 
-        driver = new RemoteWebDriver(new URL(nodeUrl),capability);
+       // driver = new RemoteWebDriver(new URL(nodeUrl),capability);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get(baseUrl);
