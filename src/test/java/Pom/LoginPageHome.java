@@ -33,7 +33,8 @@ public class LoginPageHome extends BasePage {
     private WebElement txtnomuser;
     private String nombreUser1 = "Mariela";
 
-    public void CerrarMensaje() throws InterruptedException {
+    public void CloseMens() throws InterruptedException {
+        Thread.sleep(2000);
         btnmensaje.click();
         Thread.sleep(2000);
     }
