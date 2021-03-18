@@ -7,10 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 
@@ -31,7 +28,7 @@ public class ProductosTest {
     @BeforeTest
     //@Parameters({"browser"})
     public void setUpTest() throws MalformedURLException {
-        DriverManagerFactory.getInstance().setDriver(DriverType.CHROME);
+        DriverManagerFactory.getInstance().setDriver(DriverType.FIREFOX);
         driver = DriverManagerFactory.getInstance().getDriver();
         driver.get(baseUrl);
         waitElement = new WebDriverWait(driver, 15);
@@ -39,10 +36,12 @@ public class ProductosTest {
 
     @AfterTest
     public void tearDown(){
-        driver.quit();
+
+        //driver.quit();
     }
 
-   @Test
+    //@Test(dataProvider = "SeleccionProducto", dataProviderClass = ProductosPage.class)
+    @Test
     public void Producto() throws Exception {
        homePageCorredor = new HomePageCorredor(driver);
        productosPage = new ProductosPage(driver);
@@ -70,10 +69,11 @@ public class ProductosTest {
        //datosContratosPage.ClickOncheckactulizainfo();
        datosContratosPage.ClickOnbtnContinuar();
        Assert.assertTrue(detalleContratoPage.istitledetalleDisplayed());
-       detalleContratoPage.WriteExcelFile();
        detalleContratoPage.ClickOnbtnPagar();
        Assert.assertTrue(detalleContratoPage.istitledetalleDisplayed2());
+       detalleContratoPage.WriteExcelFile();
    }
+
 
 
 
