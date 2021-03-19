@@ -31,7 +31,7 @@ public class LoginTest extends BaseClass {
 
     @AfterTest
     public void tearDown(){
-      //  driver.quit();
+        driver.quit();
     }
 
     @Severity(SeverityLevel.MINOR)
@@ -62,7 +62,7 @@ public class LoginTest extends BaseClass {
         loginPageHome.ClickEntrarLink();
         loginPageHome.EnterLogin("hurtadomariela2@gmail.com", "prueba");
         loginPageHome.ClickIniciarBtn();
-        loginPageHome.registroPageIsDisplayed();
+
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -73,7 +73,8 @@ public class LoginTest extends BaseClass {
     @Story("Story: Usuario Registrado")
     @Step("Usuario Registrado")
     public void registrationTest() throws Exception {
-        throw new SkipException("Skipping this test");
+        //throw new SkipException("Skipping this test");
+        loginPageHome.registroPageIsDisplayed();
 
     }
 
